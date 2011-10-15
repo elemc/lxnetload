@@ -10,8 +10,8 @@ NetStat *get_stat(size_t *count) {
     return NULL;
   }
   
-  int num_of_iface = 0;
-  int fscanf_result = 0;
+  // int num_of_iface = 0;
+  // int fscanf_result = 0;
 
   fseek(stat, 0, SEEK_SET);
 
@@ -37,10 +37,11 @@ NetStat *get_stat(size_t *count) {
 
     double received_bytes, transmit_bytes;
     int dump;
+    unsigned long dump2;
 
     int scaned_count = sscanf(ptr, "%lg %lu %lu %d %d %d %d %d %lg %lu %lu %d %d %d %d %d",
-	   &received_bytes, &dump, &dump, &dump, &dump, &dump, &dump, &dump,
-	   &transmit_bytes, &dump, &dump, &dump, &dump, &dump, &dump, &dump );
+			      &received_bytes, &dump2, &dump2, &dump, &dump, &dump, &dump, &dump,
+			      &transmit_bytes, &dump2, &dump2, &dump, &dump, &dump, &dump, &dump );
 
     if ( scaned_count != 16 )
       continue;
